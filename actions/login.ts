@@ -24,6 +24,10 @@ export const login = async (values: z.infer<typeof loginFormSchema>) => {
             password,
             redirectTo: defaultLoginRedirect,
         })
+
+        return {
+            success: 'Logged in successfully!',
+        }
     } catch (error) {
         if (error instanceof AuthError) {
             if (error.type === 'CredentialsSignin') {
